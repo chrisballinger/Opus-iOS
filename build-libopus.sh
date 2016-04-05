@@ -23,8 +23,8 @@
 #  Choose your libopus version and your currently-installed iOS SDK version:
 #
 VERSION="1.1.2"
-SDKVERSION="9.2"
-MINIOSVERSION="8.0"
+SDKVERSION="9.2" #what sdk version you use now, typically as same as base sdk version in project target settings
+MINIOSVERSION="8.0" #what's the minimum version you need opus supports
 
 ###########################################################################
 #
