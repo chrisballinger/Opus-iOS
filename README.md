@@ -6,6 +6,21 @@ iOS build scripts for the [Opus Codec](http://www.opus-codec.org). I am also wor
 
 ### Usage
 
+Before build, be sure you installed autoconf, automake and libtool. Otherwise, run:
+
+```bash
+brew install autoconf
+brew install automake
+brew install libtool
+```
+
+Check your custom configs in build-libopus.sh, and modify the settings for your custom need in these 2 lines:  
+
+```
+SDKVERSION="9.2"
+MINIOSVERSION="8.0"
+```
+
 1. `$ bash build-libopus.sh`
 2. Drag `dependencies/` into your Xcode project.
 3. Enjoy!
