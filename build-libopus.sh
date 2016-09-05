@@ -86,6 +86,11 @@ echo "Using opus-${VERSION}.tar.gz"
 tar zxf opus-${VERSION}.tar.gz -C $SRCDIR
 cd "${SRCDIR}/opus-${VERSION}"
 
+if [ -e "${REPOROOT}/decode_core.patch-${VERSION}" ]; then
+    echo "Patching decode_core.patch-${VERSION}"
+    patch silk/decode_core.c < ${REPOROOT}/decode_core.patch-${VERSION}
+fi
+
 set +e # don't bail out of bash script if ccache doesn't exist
 CCACHE=`which ccache`
 if [ $? == "0" ]; then
