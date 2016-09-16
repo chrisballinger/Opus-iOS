@@ -22,8 +22,8 @@
 ###########################################################################
 #  Choose your libopus version and your currently-installed iOS SDK version:
 #
-VERSION="1.1.2"
-SDKVERSION="9.2"
+VERSION="1.1.3"
+SDKVERSION="9.3"
 MINIOSVERSION="8.0"
 
 ###########################################################################
@@ -85,6 +85,11 @@ echo "Using opus-${VERSION}.tar.gz"
 
 tar zxf opus-${VERSION}.tar.gz -C $SRCDIR
 cd "${SRCDIR}/opus-${VERSION}"
+
+if [ -e "${REPOROOT}/decode_core.patch-${VERSION}" ]; then
+    echo "Patching decode_core.patch-${VERSION}"
+    patch silk/decode_core.c < ${REPOROOT}/decode_core.patch-${VERSION}
+fi
 
 set +e # don't bail out of bash script if ccache doesn't exist
 CCACHE=`which ccache`
