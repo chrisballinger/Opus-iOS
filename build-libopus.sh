@@ -23,8 +23,8 @@
 #  Choose your libopus version and your currently-installed iOS SDK version:
 #
 VERSION="1.1.3"
-SDKVERSION="10.0"
-MINIOSVERSION="9.0"
+SDKVERSION="10.2"
+MINIOSVERSION="8.0"
 
 ###########################################################################
 #
@@ -104,7 +104,7 @@ do
     if [ "${ARCH}" == "i386" ] || [ "${ARCH}" == "x86_64" ]; then
         PLATFORM="iPhoneSimulator"
         EXTRA_CFLAGS="-arch ${ARCH}"
-        EXTRA_CONFIG=""
+        EXTRA_CONFIG="--host=x86_64-apple-darwin"
     else
         PLATFORM="iPhoneOS"
         EXTRA_CFLAGS="-arch ${ARCH}"
