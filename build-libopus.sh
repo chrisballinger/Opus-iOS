@@ -21,10 +21,19 @@
 #
 ###########################################################################
 #  Choose your libopus version and your currently-installed iOS SDK version:
-#
-VERSION="1.1.3"
-SDKVERSION="10.2"
-MINIOSVERSION="8.0"
+#  You can also specify these values as environment variables
+if [ -z "${VERSION}" ]; then
+	VERSION="1.1.3"
+fi
+if [ -z "${SDKVERSION}" ]; then
+	SDKVERSION="10.3"
+fi
+if [ -z "${MINIOSVERSION}" ]; then
+	MINIOSVERSION="8.0"
+fi
+if [ -z "${CPUCNT}" ]; then
+	CPUCNT=4
+fi
 
 ###########################################################################
 #
@@ -121,7 +130,7 @@ do
     # Build the application and install it to the fake SDK intermediary dir
     # we have set up. Make sure to clean up afterward because we will re-use
     # this source tree to cross-compile other targets.
-	make -j4
+	make -j$CPUCNT
 	make install
 	make clean
 done
